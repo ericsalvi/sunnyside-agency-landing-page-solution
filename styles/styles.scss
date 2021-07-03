@@ -1,0 +1,433 @@
+@import "variables";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+html {
+  font-family: $barlow-sans;
+  font-size: 18px;
+}
+
+h1,
+h2 {
+  font-family: $fraunces-serif;
+  font-weight: 900;
+}
+a {
+  text-decoration: none;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 24px;
+  position: absolute;
+  width: 100%;
+
+  // Hamburger menu inspired by https://codepen.io/husnimun/pen/pJvEeL
+  .menu-wrapper {
+    cursor: pointer;
+    height: (($bar-height + $bar-spacing) * 2)+3;
+    width: $bar-width;
+  }
+  .hamburger-menu,
+  .hamburger-menu:after,
+  .hamburger-menu:before {
+    height: $bar-height;
+    width: $bar-width;
+  }
+  .hamburger-menu {
+    background: $white;
+    position: relative;
+    top: 10px;
+    transition: all 0ms $animateTime;
+    &.animate {
+      background: rgba(255, 255, 255, 0);
+    }
+    &::before {
+      background: $white;
+      bottom: $bar-spacing;
+      content: "";
+      left: 0;
+      position: absolute;
+      transition: bottom $animateTime $animateTime
+          cubic-bezier(0.23, 1, 0.32, 1),
+        transform $animateTime cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    &::after {
+      background: $white;
+      content: "";
+      left: 0;
+      position: absolute;
+      top: $bar-spacing;
+      transition: top $animateTime $animateTime cubic-bezier(0.23, 1, 0.32, 1),
+        transform $animateTime cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    &.animate {
+      &::after {
+        top: 0;
+        transform: rotate(45deg);
+        transition: top $animateTime cubic-bezier(0.23, 1, 0.32, 1),
+          transform $animateTime $animateTime cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      &::before {
+        bottom: 0;
+        transform: rotate(-45deg);
+        transition: bottom $animateTime cubic-bezier(0.23, 1, 0.32, 1),
+          transform $animateTime $animateTime cubic-bezier(0.23, 1, 0.32, 1);
+      }
+    }
+  }
+  nav {
+    align-items: center;
+    background: $white;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    margin: 0 22px;
+    opacity: 0;
+    padding: 30px 0 40px;
+    position: absolute;
+    top: 96px;
+    width: calc(100% - 46px);
+    visibility: hidden;
+    z-index: 2;
+    &::before {
+      border-bottom: 34px solid $white;
+      border-left: 34px solid transparent;
+      content: "";
+      height: 0;
+      position: absolute;
+      right: 0;
+      top: -23px;
+      width: 0;
+    }
+    a {
+      color: $dark-grayish-blue;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      padding: 10px 20px;
+      transition: color 0.2s ease-in-out;
+      &:hover {
+        color: $grayish-blue;
+      }
+      &:last-child {
+        background: $yellow;
+        border-radius: 50px;
+        color: $very-dark-desaturated-blue;
+        font-family: $fraunces-serif;
+        font-size: 0.85rem;
+        font-weight: 700;
+        margin-bottom: 0;
+        margin-top: 10px;
+        padding: 19px 30px;
+        text-transform: uppercase;
+        transition: opacity 0.2s ease-in-out;
+        &:hover {
+          opacity: 0.75;
+        }
+      }
+    }
+  }
+  &.opened {
+    nav {
+      opacity: 1;
+      transition: all 0.2s ease-in-out;
+      top: 106px;
+      visibility: visible;
+    }
+  }
+}
+main {
+  text-align: center;
+  .banner {
+    background-image: url(../images/mobile/image-header.jpg);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    min-height: 538px;
+    padding: 0 20px;
+    h1 {
+      align-self: center;
+      color: $white;
+      display: flex;
+      font-size: 2.27rem;
+      flex-direction: column;
+      letter-spacing: 6px;
+      line-height: 1.2;
+      padding-top: 20px;
+      text-transform: uppercase;
+      &::after {
+        content: url("../images/icon-arrow-down.svg");
+        padding-top: 48px;
+        -webkit-animation-name: fadeInDown;
+        animation-name: fadeInDown;
+        -webkit-animation-delay: 1s;
+        animation-delay: 1s;
+        -webkit-animation-duration: 0.75s;
+        animation-duration: 0.75s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+      }
+    }
+  }
+  .brand {
+    display: flex;
+    flex-direction: column;
+    &__img {
+      background-image: url("../images/mobile/image-transform.jpg");
+      background-position: center;
+      background-size: cover;
+      min-height: 314px;
+    }
+    &__content {
+      padding: 65px 26px;
+      h2 {
+        color: $very-dark-desaturated-blue;
+        font-size: 1.78rem;
+        line-height: 1.23;
+        margin-bottom: 23px;
+      }
+      p {
+        color: $dark-grayish-blue;
+        line-height: 1.7;
+        margin-bottom: 36px;
+        word-spacing: -0.75px;
+      }
+    }
+    &__btn {
+      a {
+        color: $very-dark-desaturated-blue;
+        font-family: $fraunces-serif;
+        font-size: 0.9rem;
+        font-weight: 900;
+        position: relative;
+        text-transform: uppercase;
+        word-spacing: 2px;
+        &:hover {
+          &::after {
+            opacity: 0.75;
+          }
+        }
+        &::after {
+          background-color: $yellow;
+          border-radius: 50px;
+          bottom: -3px;
+          content: "";
+          height: 10px;
+          left: calc(50% - (8.5em / 2));
+          opacity: 0.25;
+          position: absolute;
+          transition: opacity 0.2s ease-in-out;
+          width: 8.5em;
+          z-index: -1;
+        }
+      }
+    }
+  }
+  .audience {
+    display: flex;
+    flex-direction: column;
+    &__img {
+      background-image: url("../images/mobile/image-stand-out.jpg");
+      background-position: center;
+      background-size: cover;
+      min-height: 313px;
+    }
+    &__content {
+      padding: 65px 26px;
+      h2 {
+        color: $very-dark-desaturated-blue;
+        font-size: 1.78rem;
+        line-height: 1.23;
+        margin-bottom: 23px;
+      }
+      p {
+        color: $dark-grayish-blue;
+        line-height: 1.7;
+        margin-bottom: 36px;
+        word-spacing: -0.75px;
+      }
+    }
+    &__btn {
+      a {
+        color: $very-dark-desaturated-blue;
+        font-family: $fraunces-serif;
+        font-size: 0.9rem;
+        font-weight: 900;
+        position: relative;
+        text-transform: uppercase;
+        word-spacing: 2px;
+        &:hover {
+          &::after {
+            opacity: 0.75;
+          }
+        }
+        &::after {
+          background-color: $soft-red;
+          border-radius: 50px;
+          bottom: -3px;
+          content: "";
+          height: 10px;
+          left: calc(50% - (8.5em / 2));
+          opacity: 0.25;
+          position: absolute;
+          transition: opacity 0.2s ease-in-out;
+          width: 8.5em;
+          z-index: -1;
+        }
+      }
+    }
+  }
+  .design {
+    background-image: url("../images/mobile/image-graphic-design.jpg");
+    background-position: center;
+    background-size: cover;
+    color: $dark-desaturated-cyan;
+    padding: 400px 20px 60px;
+    h2 {
+      font-size: 1.55rem;
+      margin-bottom: 28px;
+      text-transform: capitalize;
+    }
+    p {
+      font-size: 0.875rem;
+      line-height: 1.75;
+    }
+  }
+  .photography {
+    background-image: url("../images/mobile/image-photography.jpg");
+    background-position: center;
+    background-size: cover;
+    color: $dark-blue;
+    padding: 400px 20px 60px;
+    h2 {
+      font-size: 1.55rem;
+      margin-bottom: 28px;
+      text-transform: capitalize;
+    }
+    p {
+      font-size: 0.875rem;
+      line-height: 1.75;
+    }
+  }
+  .testimonial {
+    padding: 67px 24px 90px;
+    h3 {
+      color: $grayish-blue;
+      font-family: $fraunces-serif;
+      font-size: 0.92rem;
+      font-weight: 900;
+      letter-spacing: 3.7px;
+      margin-bottom: 64px;
+      text-transform: uppercase;
+    }
+    &__card {
+      min-height: 283px;
+      img {
+        border-radius: 50px;
+        height: 72px;
+        margin-bottom: 28px;
+        width: 72px;
+      }
+      blockquote {
+        color: $very-dark-grayish-blue;
+        line-height: 1.8;
+        margin-bottom: 34px;
+      }
+      .author {
+        color: $very-dark-desaturated-blue;
+        font-family: $fraunces-serif;
+        font-weight: 900;
+        margin-bottom: 13px;
+      }
+      .title {
+        color: $grayish-blue;
+        font-size: 0.76rem;
+      }
+      & + * {
+        margin-top: 66px;
+      }
+    }
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    &__item {
+      // height: 186px;
+      padding-top: 376px / 376px * 100%;
+      background-position: center;
+      background-size: cover;
+    }
+    &__item:first-child {
+      background-image: url("../images/mobile/image-gallery-milkbottles.jpg");
+    }
+    &__item:nth-child(2) {
+      background-image: url("../images/mobile/image-gallery-orange.jpg");
+    }
+    &__item:nth-child(3) {
+      background-image: url("../images/mobile/image-gallery-cone.jpg");
+    }
+    &__item:last-child {
+      background-image: url("../images/mobile/image-gallery-sugar-cubes.jpg");
+    }
+  }
+}
+footer {
+  align-items: center;
+  background: $light-cyan;
+  color: $dark-cyan;
+  display: flex;
+  flex-direction: column;
+  padding: 70px 38px 80px;
+  & > a {
+    margin-bottom: 45px;
+  }
+  .logo {
+    fill: $dark-cyan;
+    svg {
+      transform: scale(1.4);
+    }
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 90px;
+    width: 100%;
+    a {
+      color: $dark-cyan;
+      transition: color 0.2s ease-in-out;
+      &:hover {
+        color: $dark-desaturated-cyan;
+      }
+    }
+  }
+  .social {
+    display: flex;
+    * + * {
+      margin-left: 28px;
+    }
+    &__icons {
+      font-size: 1.19rem;
+      a {
+        &:hover {
+          .fab {
+            color: $dark-desaturated-cyan;
+            transition: color 0.2s ease-in-out;
+          }
+        }
+      }
+      .fab {
+        color: $dark-cyan;
+      }
+    }
+  }
+}
+
+@import "media";

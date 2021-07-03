@@ -1,0 +1,201 @@
+@media (min-width: 578px) {
+  main {
+    .banner {
+      background-image: url("../images/desktop/image-header.jpg");
+    }
+    .design {
+      background-image: url("../images/desktop/image-graphic-design.jpg");
+      background-position: top;
+    }
+    .photography {
+      background-image: url("../images/desktop/image-photography.jpg");
+      background-position: top;
+    }
+    .gallery {
+      grid-template-columns: 25% 25% 25% 25%;
+      &__item {
+        padding-top: 894px / 667px * 100%;
+      }
+      &__item:first-child {
+        background-image: url("../images/desktop/image-gallery-milkbottles.jpg");
+      }
+      &__item:nth-child(2) {
+        background-image: url("../images/desktop/image-gallery-orange.jpg");
+      }
+      &__item:nth-child(3) {
+        background-image: url("../images/desktop/image-gallery-cone.jpg");
+      }
+      &__item:last-child {
+        background-image: url("../images/desktop/image-gallery-sugarcubes.jpg");
+      }
+    }
+  }
+  footer {
+    padding-bottom: 70px;
+    nav {
+      gap: 55px;
+      justify-content: center;
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  header {
+    align-items: center;
+    padding: 36px 40px;
+    .logo {
+      img {
+        width: 172px;
+      }
+    }
+    .menu-wrapper {
+      display: none;
+    }
+    nav {
+      background: none;
+      display: flex;
+      flex-direction: row;
+      margin: 0;
+      opacity: 1;
+      padding: 0;
+      position: static;
+      visibility: visible;
+      width: unset;
+      &::before {
+        border: 0;
+      }
+      a {
+        color: $white;
+        font-size: 1rem;
+        margin-bottom: 0;
+        margin-left: 8px;
+        transition: none;
+        &:hover {
+          color: $dark-blue;
+          transition: color 0.2s ease-in-out;
+        }
+        &:last-child {
+          background: $white;
+          margin: 0 8px 0 28px;
+          transition-property: background, color;
+          transition-duration: 0.2s;
+          transition-timing-function: ease-in-out;
+          &:hover {
+            background: hsl(200, 100%, 72%);
+            color: $white;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  main {
+    .banner {
+      background-image: url(../images/desktop/image-header.jpg);
+      height: 100vh;
+      h1 {
+        align-self: flex-start;
+        font-size: 3.35rem;
+        padding-top: 150px;
+        &::after {
+          padding-top: 100px;
+        }
+      }
+    }
+    section {
+      min-height: 600px;
+    }
+    .brand {
+      flex-direction: row-reverse;
+      > div {
+        width: 50%;
+      }
+      &__img {
+        background-image: url("../images/desktop/image-transform.jpg");
+      }
+      &__content {
+        align-items: flex-end;
+        align-self: center;
+        direction: rtl;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
+        margin-left: auto;
+        max-width: 590px;
+        padding-right: 100px;
+        text-align: left;
+        h2 {
+          font-size: 2.22rem;
+        }
+        p {
+          max-width: 44ch;
+        }
+      }
+    }
+    .audience {
+      flex-direction: row;
+      > div {
+        width: 50%;
+      }
+      &__img {
+        background-image: url("../images/desktop/image-stand-out.jpg");
+      }
+      &__content {
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
+        padding: 160px 110px;
+        text-align: left;
+        h2 {
+          font-size: 2.22rem;
+        }
+        p {
+          max-width: 44ch;
+        }
+      }
+    }
+    .flex-container {
+      display: flex;
+      > section {
+        width: 50%;
+        p {
+          margin: 0 auto;
+          width: 38ch;
+        }
+      }
+    }
+    .testimonial__container {
+      display: flex;
+      gap: 35px;
+      justify-content: center;
+    }
+    .testimonial {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      justify-content: center;
+      &__card {
+        align-items: center;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        max-width: 348px;
+        + * {
+          margin-top: 0;
+        }
+        img {
+          margin-bottom: 60px;
+        }
+        blockquote {
+          margin-bottom: 75px;
+        }
+        .author {
+          margin-top: auto;
+        }
+      }
+    }
+  }
+}
