@@ -26,6 +26,8 @@ Users should be able to:
 ### Screenshot
 
 ![Desktop Design Solution](./design/desktop-design-solution.png)
+![Above the fold](./design/above-the-fold.png)
+![Close up of mobile menu](./design/mobile-menu-design.png)
 ![Mobile Design Solution](./design/mobile-design-solution.png)
 
 ### Links
