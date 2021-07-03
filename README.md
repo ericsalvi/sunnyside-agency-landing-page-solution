@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [frontendmentor.io](https://www.frontendmentor.io/solutions/ping-coming-soon-component-scss-mobilefirst-bem-v5Aq_-oih)
-- Live Site URL: [https://ericsalvi.github.io/ping-single-column-coming-soon-component/](https://ericsalvi.github.io/ping-single-column-coming-soon-component/)
+- Solution URL: [frontendmentor.io](https://www.frontendmentor.io/solutions/sunnyside-agency-lp-solution-scss-js-semantic-html-bem-fun-Dy6SvLBne)
+- Live Site URL: [https://ericsalvi.github.io/sunnyside-agency-landing-page-solution/](https://ericsalvi.github.io/sunnyside-agency-landing-page-solution/)
 
 ## My process
 
